@@ -31,6 +31,11 @@ class CustomTextStyle {
       fontSize: 16,
       fontWeight: FontWeight.w500,
       fontFamily: "Urbanist");
+  static const TextStyle textFieldlabelstyle = TextStyle(
+      color: Colors.black54,
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      fontFamily: "Urbanist");
   static getDoctorDescription() {
     return const Text.rich(
       TextSpan(

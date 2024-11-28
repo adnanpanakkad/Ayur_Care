@@ -18,10 +18,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Ayur Care',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        theme: ThemeData.light(),
         debugShowCheckedModeBanner: false,
         home: const SplashScreen(),
       ),

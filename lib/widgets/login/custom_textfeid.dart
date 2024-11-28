@@ -1,65 +1,90 @@
+import 'package:ayur_care/utils/app_colors.dart';
+import 'package:ayur_care/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
-  final TextEditingController controller;
-  final String hintText;
-  final String labelText;  // New parameter for label
-  final bool obscureText;
-  final FormFieldValidator<String>? validator;
-
-  const CustomTextField({
-    required this.controller,
-    required this.hintText,
-    required this.labelText, // Adding labelText to the constructor
-    this.obscureText = false,
-    this.validator,
+class CustomTextfield extends StatelessWidget {
+  const CustomTextfield({
     super.key,
+    this.controller,
+    this.hintText,
+    this.validation,
+    this.suffixIcon,
+    this.keyboardType,
+    this.readOnly,
+    this.onChanged,
+    FocusNode? focusNode,
+    required this.labelText,
   });
+
+  final TextEditingController? controller;
+  final Widget? suffixIcon;
+  final TextInputType? keyboardType;
+  final String? hintText;
+  final FormFieldValidator? validation;
+  final bool? readOnly;
+  final void Function(String)? onChanged;
+  final String labelText;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // Label Text on top of the TextField
-        Text(
-          labelText,
-          style: TextStyle(
-            color: Colors.black.withOpacity(0.7),
-            fontSize: 16.0,
-            fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            labelText,
+            style: const TextStyle(
+              color: Colors.black54,
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        const SizedBox(height: 8.0), // Space between label and TextField
-        // TextFormField
-        TextFormField(
-          cursorColor: Colors.black,
-          style: const TextStyle(color: Colors.black),
-          controller: controller,
-          obscureText: obscureText,
-          validator: validator,
-          decoration: InputDecoration(
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
-            hintText: hintText,
-            hintStyle: TextStyle(color: Colors.black.withOpacity(0.8)),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black.withOpacity(0.8)),
-              borderRadius: BorderRadius.circular(8.0),
+          const SizedBox(height: 8.0), 
+
+          // TextFormField
+          TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            onChanged: onChanged,
+            readOnly: readOnly ?? false,
+            keyboardType: keyboardType,
+            validator: validation,
+            controller: controller,
+            decoration: InputDecoration(
+              suffixIcon: suffixIcon,
+              errorBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              focusedErrorBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              contentPadding: const EdgeInsets.all(20),
+              hintText: hintText,
+              hintStyle: CustomTextStyle.textFieldstyle,
+              fillColor: const Color.fromARGB(255, 237, 237, 237),
+              filled: true,
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color.fromARGB(255, 210, 210, 210),
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              focusedBorder: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderSide: BorderSide(
+                  color: Appcolor.primaryColor,
+                ),
+              ),
             ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey.withOpacity(0.8)),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.red),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            filled: true,
-            fillColor: Colors.white.withOpacity(0.8), 
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

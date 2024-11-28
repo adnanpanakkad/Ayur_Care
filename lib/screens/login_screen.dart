@@ -1,4 +1,5 @@
 import 'package:ayur_care/controller/login_controller.dart';
+import 'package:ayur_care/screens/home_screen.dart';
 import 'package:ayur_care/utils/app_text_styles.dart';
 import 'package:ayur_care/widgets/login/custom_buttom.dart';
 import 'package:ayur_care/widgets/login/custom_textfeid.dart';
@@ -40,30 +41,33 @@ class LoginScreen extends StatelessWidget {
                             height: 30,
                           ),
 
-                          CustomTextField(
-                              validator: (value) =>
+                          CustomTextfield(
+                              validation: (value) =>
                                   loginController.validateEmail(value),
                               controller: loginController.emailController,
-                              hintText: 'hintText',
+                              hintText: 'Email',
                               labelText: 'Email'),
                           const SizedBox(
-                            height: 30,
+                            height: 20,
                           ),
 
-                          CustomTextField(
-                              validator: (value) =>
+                          CustomTextfield(
+                              validation: (value) =>
                                   loginController.validatePassword(value),
-                              controller: loginController.emailController,
-                              hintText: 'hintText',
-                              labelText: 'Password'),
-
+                              controller: loginController.passwordController,
+                              hintText: 'password',
+                              labelText: 'password'),
                           const SizedBox(height: 70),
 
                           // Login Button
                           CustomButton(
                               text: 'Login',
                               onTap: () {
-                                loginController.loginUser(context);
+                                // loginController.loginUser(context);
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => HomeScreen()),
+                                );
                               }),
                           const SizedBox(height: 70),
                           CustomTextStyle.getDoctorDescription(),

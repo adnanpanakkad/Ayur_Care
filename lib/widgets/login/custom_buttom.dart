@@ -1,3 +1,4 @@
+import 'package:ayur_care/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -18,7 +19,7 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.green.shade600,
+          backgroundColor: Appcolor.buttonColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0),
           ),
@@ -31,7 +32,7 @@ class CustomButton extends StatelessWidget {
           style: const TextStyle(
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
       ),
