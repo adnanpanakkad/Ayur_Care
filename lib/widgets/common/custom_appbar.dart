@@ -10,7 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: AppBar(
         backgroundColor: Appcolor.primaryColor,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -18,7 +18,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         // Right side icons
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications),
+            icon: const Icon(
+              Icons.notifications_none_outlined,
+              size: 30,
+            ),
             onPressed: () {
               // Handle notifications icon press
             },

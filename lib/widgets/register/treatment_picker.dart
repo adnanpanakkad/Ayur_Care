@@ -1,3 +1,4 @@
+import 'package:ayur_care/utils/app_colors.dart';
 import 'package:ayur_care/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -48,9 +49,10 @@ class TreatmentPicker extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 37.0),
                       child: Row(
                         children: [
-                          const Text(
+                          Text(
                             'Male',
-                            style: TextStyle(color: Colors.grey, fontSize: 18),
+                            style: TextStyle(
+                                color: Appcolor.buttonColor, fontSize: 18),
                           ),
                           const SizedBox(
                             width: 10,
@@ -62,7 +64,10 @@ class TreatmentPicker extends StatelessWidget {
                               border: Border.all(color: Colors.grey),
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: const Text('2'),
+                            child: Text(
+                              '2',
+                              style: TextStyle(color: Appcolor.buttonColor),
+                            ),
                           ),
                         ],
                       ),
@@ -71,9 +76,10 @@ class TreatmentPicker extends StatelessWidget {
                       padding: const EdgeInsets.only(right: 0),
                       child: Row(
                         children: [
-                          const Text(
+                          Text(
                             'Female',
-                            style: TextStyle(color: Colors.grey, fontSize: 18),
+                            style: TextStyle(
+                                color: Appcolor.buttonColor, fontSize: 18),
                           ),
                           const SizedBox(
                             width: 10,
@@ -85,7 +91,10 @@ class TreatmentPicker extends StatelessWidget {
                               border: Border.all(color: Colors.grey),
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: const Text('2'),
+                            child: Text(
+                              '2',
+                              style: TextStyle(color: Appcolor.buttonColor),
+                            ),
                           ),
                         ],
                       ),

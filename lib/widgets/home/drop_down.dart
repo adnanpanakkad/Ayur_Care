@@ -9,7 +9,7 @@ class DropdownButtons extends StatelessWidget {
     String dropdownValue = 'One';
 
     return Container(
-      width: 200,
+      width: 180,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(30),

@@ -91,7 +91,10 @@ class Homecard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('View Booking details'),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 28),
+                      child: Text('View Booking details'),
+                    ),
                     IconButton(
                         onPressed: () {
                           Navigator.push(

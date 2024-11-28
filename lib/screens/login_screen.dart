@@ -48,7 +48,7 @@ class LoginScreen extends StatelessWidget {
                               hintText: 'Email',
                               labelText: 'Email'),
                           const SizedBox(
-                            height: 20,
+                            height: 10,
                           ),
 
                           CustomTextfield(
@@ -69,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                                       builder: (context) => const HomeScreen()),
                                 );
                               }),
-                          const SizedBox(height: 50),
+                          const SizedBox(height: 60),
                           CustomTextStyle.getDoctorDescription(),
                         ],
                       ),
