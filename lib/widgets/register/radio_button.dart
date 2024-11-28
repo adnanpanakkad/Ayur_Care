@@ -13,7 +13,6 @@ class _RadioButtonState extends State<RadioButton> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween, // Space buttons evenly
       children: [
         Expanded(
           child: RadioListTile<String>(
@@ -25,31 +24,33 @@ class _RadioButtonState extends State<RadioButton> {
                 _selectedValue = value!;
               });
             },
+            contentPadding: EdgeInsets.zero, // Removes extra padding
           ),
         ),
-        SizedBox(width: 10),
         Expanded(
           child: RadioListTile<String>(
-            title: const Text('card'),
-            value: 'card',
+            title: const Text('Card'),
+            value: 'Card',
             groupValue: _selectedValue,
             onChanged: (value) {
               setState(() {
                 _selectedValue = value!;
               });
             },
+            contentPadding: EdgeInsets.zero, // Removes extra padding
           ),
         ),
         Expanded(
           child: RadioListTile<String>(
-            title: const Text('Upi'),
-            value: 'Upi',
+            title: const Text('UPI'),
+            value: 'UPI',
             groupValue: _selectedValue,
             onChanged: (value) {
               setState(() {
                 _selectedValue = value!;
               });
             },
+            contentPadding: EdgeInsets.zero, // Removes extra padding
           ),
         ),
       ],

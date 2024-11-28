@@ -1,9 +1,11 @@
 import 'package:ayur_care/utils/app_colors.dart';
 import 'package:ayur_care/utils/app_text_styles.dart';
 import 'package:ayur_care/widgets/common/custom_appbar.dart';
-import 'package:ayur_care/widgets/home/radio_button.dart';
+import 'package:ayur_care/widgets/home/drop_down.dart';
+import 'package:ayur_care/widgets/register/radio_button.dart';
 import 'package:ayur_care/widgets/login/custom_buttom.dart';
 import 'package:ayur_care/widgets/login/custom_textfeid.dart';
+import 'package:ayur_care/widgets/register/treatment_picker.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -21,9 +23,12 @@ class RegisterScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Register',
-                  style: CustomTextStyle.highboldTxtStyle,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Text(
+                    'Register',
+                    style: CustomTextStyle.highboldTxtStyle,
+                  ),
                 ),
                 Divider(),
                 SizedBox(height: 10),
@@ -43,25 +48,25 @@ class RegisterScreen extends StatelessWidget {
                           hintText: 'Enter password', labelText: 'Location'),
                       CustomTextfield(
                           hintText: 'Enter address', labelText: 'Branch'),
-                      CustomTextfield(
-                          hintText: 'Enter city', labelText: 'Total Amount'),
-                      CustomTextfield(
-                          hintText: 'Enter state',
-                          labelText: 'Discount Amount'),
+                      Text(
+                        'Treatments',
+                        style: CustomTextStyle.textFieldlabelstyle,
+                      ),
+                      TreatmentPicker(),
+                      CustomTextfield(labelText: 'Total Amount'),
+                      CustomTextfield(labelText: 'Discount Amount'),
                       Text(
                         'Payment Option',
                         style: CustomTextStyle.textFieldlabelstyle,
                       ),
                       RadioButton(),
-                      CustomTextfield(
-                          hintText: 'Enter zip code',
-                          labelText: 'Advance Amount'),
-                      CustomTextfield(
-                          hintText: 'Enter country',
-                          labelText: 'Balance Amount'),
-                      CustomTextfield(
-                          hintText: 'Enter profession',
-                          labelText: 'Treatment Date'),
+                      CustomTextfield(labelText: 'Advance Amount'),
+                      CustomTextfield(labelText: 'Balance Amount'),
+                      Row(
+                        children: [
+                          DropdownButtons(),
+                        ],
+                      ),
                       SizedBox(height: 80),
                     ],
                   ),

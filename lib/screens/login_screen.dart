@@ -66,10 +66,10 @@ class LoginScreen extends StatelessWidget {
                                 // loginController.loginUser(context);
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => HomeScreen()),
+                                      builder: (context) => const HomeScreen()),
                                 );
                               }),
-                          const SizedBox(height: 70),
+                          const SizedBox(height: 50),
                           CustomTextStyle.getDoctorDescription(),
                         ],
                       ),

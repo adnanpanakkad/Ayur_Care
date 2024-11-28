@@ -40,7 +40,7 @@ class CustomTextfield extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8.0), 
+          const SizedBox(height: 8.0),
 
           // TextFormField
           TextFormField(

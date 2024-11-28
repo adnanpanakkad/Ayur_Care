@@ -1,6 +1,5 @@
 import 'package:ayur_care/screens/booking_detail_screen.dart';
-import 'package:ayur_care/screens/register_screen.dart';
-import 'package:ayur_care/widgets/home/popup.dart';
+import 'package:ayur_care/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class Homecard extends StatelessWidget {
@@ -19,13 +18,13 @@ class Homecard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white10,
+      color: const Color(0xFFF1F1F1),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
       elevation: 1,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -47,7 +46,8 @@ class Homecard extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 15.0),
                         child: Text(
                           content!,
-                          style: const TextStyle(
+                          style: TextStyle(
+                            color: Appcolor.buttonColor,
                             fontSize: 18,
                           ),
                         ),
@@ -65,11 +65,19 @@ class Homecard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.calendar_today, size: 16),
+                      const Icon(
+                        Icons.calendar_today_rounded,
+                        size: 16,
+                        color: Colors.red,
+                      ),
                       const SizedBox(width: 5),
                       Text(date!),
                       const SizedBox(width: 40),
-                      const Icon(Icons.group, size: 16),
+                      const Icon(
+                        Icons.group_outlined,
+                        size: 16,
+                        color: Colors.red,
+                      ),
                       const SizedBox(width: 5),
                       Text(time!),
                     ],
@@ -77,26 +85,28 @@ class Homecard extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
-            Row(
+            Column(
               children: [
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () async {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => BookingDetailScreen()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      backgroundColor: Colors.grey[300],
-                    ),
-                    child: const Text('Cancel'),
-                  ),
-                ),
+                Divider(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('View Booking details'),
+                    IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BookingDetailScreen()));
+                        },
+                        icon: Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          color: Appcolor.buttonColor,
+                        )),
+                  ],
+                )
               ],
-            ),
+            )
           ],
         ),
       ),

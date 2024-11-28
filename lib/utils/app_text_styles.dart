@@ -6,8 +6,8 @@ class CustomTextStyle {
   static const TextStyle buttonTextStyle = TextStyle(
       fontSize: 17, fontWeight: FontWeight.w600, fontFamily: "Urbanist");
   static const TextStyle containerTextStyle = TextStyle(
-      color: Colors.grey,
-      fontSize: 17,
+      color: Colors.black,
+      fontSize: 19,
       fontWeight: FontWeight.w600,
       fontFamily: "Urbanist");
 
@@ -32,9 +32,9 @@ class CustomTextStyle {
       fontWeight: FontWeight.w500,
       fontFamily: "Urbanist");
   static const TextStyle textFieldlabelstyle = TextStyle(
-      color: Colors.black54,
+      color: Color.fromARGB(137, 0, 0, 0),
       fontSize: 16,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.bold,
       fontFamily: "Urbanist");
   static getDoctorDescription() {
     return const Text.rich(
