@@ -1,5 +1,6 @@
 import 'package:ayur_care/screens/booking_detail_screen.dart';
 import 'package:ayur_care/utils/app_colors.dart';
+import 'package:ayur_care/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class Homecard extends StatelessWidget {
@@ -24,7 +25,7 @@ class Homecard extends StatelessWidget {
       ),
       elevation: 1,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -36,21 +37,13 @@ class Homecard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        tittle!.toUpperCase(),
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        tittle!,
+                        style: CustomTextStyle.containerTittleStyle,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 15.0),
-                        child: Text(
-                          content!,
-                          style: TextStyle(
-                            color: Appcolor.buttonColor,
-                            fontSize: 18,
-                          ),
-                        ),
+                        child: Text(content!,
+                            style: CustomTextStyle.containersubTittlestyle),
                       ),
                     ],
                   ),
@@ -87,12 +80,12 @@ class Homecard extends StatelessWidget {
             ),
             Column(
               children: [
-                Divider(),
+                const Divider(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 28),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 28, bottom: 25),
                       child: Text('View Booking details'),
                     ),
                     IconButton(
@@ -100,10 +93,12 @@ class Homecard extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => BookingDetailScreen()));
+                                  builder: (context) =>
+                                      const BookingDetailScreen()));
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_forward_ios_outlined,
+                          size: 20,
                           color: Appcolor.buttonColor,
                         )),
                   ],

@@ -30,7 +30,7 @@ class TreatmentPicker extends StatelessWidget {
                 Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 15),
+                      padding: const EdgeInsets.only(left: 10),
                       child: Text('1. Couple Combo package i...',
                           style: CustomTextStyle.containerTextStyle),
                     ),

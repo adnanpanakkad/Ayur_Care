@@ -1,4 +1,5 @@
 import 'package:ayur_care/utils/app_colors.dart';
+import 'package:ayur_care/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -27,14 +28,7 @@ class CustomButton extends StatelessWidget {
           shadowColor: Colors.black.withOpacity(0.3),
           elevation: 8,
         ),
-        child: Text(
-          text,
-          style: const TextStyle(
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
+        child: Text(text, style: CustomTextStyle.buttonTextStyle),
       ),
     );
   }

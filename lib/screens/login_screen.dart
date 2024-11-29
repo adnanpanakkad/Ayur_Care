@@ -1,4 +1,6 @@
 import 'package:ayur_care/controller/login_controller.dart';
+import 'package:ayur_care/screens/home_screen.dart';
+import 'package:ayur_care/utils/app_colors.dart';
 import 'package:ayur_care/utils/app_text_styles.dart';
 import 'package:ayur_care/widgets/login/custom_buttom.dart';
 import 'package:ayur_care/widgets/login/custom_textfeid.dart';
@@ -20,7 +22,7 @@ class LoginScreen extends StatelessWidget {
             children: [
               const ImageContainer(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -44,7 +46,7 @@ class LoginScreen extends StatelessWidget {
                               validation: (value) =>
                                   loginController.textFieldValidation(value),
                               controller: loginController.emailController,
-                              hintText: 'Email',
+                              hintText: 'Email your email',
                               labelText: 'Email'),
                           const SizedBox(
                             height: 10,
@@ -54,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                               validation: (value) =>
                                   loginController.validatePassword(value),
                               controller: loginController.passwordController,
-                              hintText: 'password',
+                              hintText: 'Enter password',
                               labelText: 'password'),
                           const SizedBox(height: 70),
 
@@ -62,11 +64,11 @@ class LoginScreen extends StatelessWidget {
                           CustomButton(
                               text: 'Login',
                               onTap: () {
-                                loginController.loginUser(context);
-                                // Navigator.of(context).push(
-                                //   MaterialPageRoute(
-                                //       builder: (context) => const HomeScreen()),
-                                // );
+                                //loginController.loginUser(context);
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => const HomeScreen()),
+                                );
                               }),
                           const SizedBox(height: 60),
                           CustomTextStyle.getDoctorDescription(),

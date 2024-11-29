@@ -67,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           'Sort by:',
-                          style: CustomTextStyle.buttonTextStyle,
+                          style: CustomTextStyle.containerTextStyle,
                         ),
                         const DropdownButtons(),
                       ],

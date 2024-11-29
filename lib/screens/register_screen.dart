@@ -1,8 +1,8 @@
+import 'package:ayur_care/controller/pdf_controller.dart';
 import 'package:ayur_care/controller/register_controller.dart';
 import 'package:ayur_care/utils/app_colors.dart';
 import 'package:ayur_care/utils/app_text_styles.dart';
 import 'package:ayur_care/widgets/common/custom_appbar.dart';
-import 'package:ayur_care/widgets/home/drop_down.dart';
 import 'package:ayur_care/widgets/register/radio_button.dart';
 import 'package:ayur_care/widgets/login/custom_buttom.dart';
 import 'package:ayur_care/widgets/login/custom_textfeid.dart';
@@ -110,7 +110,11 @@ class RegisterScreen extends StatelessWidget {
               left: 15,
               right: 15,
               bottom: 20,
-              child: CustomButton(text: 'Save', onTap: () {})),
+              child: CustomButton(
+                  text: 'Save',
+                  onTap: () {
+                    generatePDF(context);
+                  })),
         ],
       ),
     );
