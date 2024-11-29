@@ -62,14 +62,14 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           'Sort by:',
                           style: CustomTextStyle.buttonTextStyle,
                         ),
-                        DropdownButtons(),
+                        const DropdownButtons(),
                       ],
                     ),
                     const Divider(),

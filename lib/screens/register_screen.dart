@@ -27,8 +27,8 @@ class RegisterScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Text(
                     'Register',
                     style: CustomTextStyle.highboldTxtStyle,
@@ -54,21 +54,21 @@ class RegisterScreen extends StatelessWidget {
                           labelText: 'Location'),
                       const CustomTextfield(
                           hintText: 'Select the branch', labelText: 'Branch'),
-                      const Text(
+                      Text(
                         'Treatments',
                         style: CustomTextStyle.textFieldlabelstyle,
                       ),
                       const TreatmentPicker(),
                       const CustomTextfield(labelText: 'Total Amount'),
                       const CustomTextfield(labelText: 'Discount Amount'),
-                      const Text(
+                      Text(
                         'Payment Option',
                         style: CustomTextStyle.textFieldlabelstyle,
                       ),
                       const RadioButton(),
                       const CustomTextfield(labelText: 'Advance Amount'),
                       const CustomTextfield(labelText: 'Balance Amount'),
-                      const Text(
+                      Text(
                         'Payment Option',
                         style: CustomTextStyle.textFieldlabelstyle,
                       ),

@@ -1,11 +1,14 @@
+import 'package:ayur_care/screens/home_screen.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:ayur_care/model/user_model.dart';  // Import UserModel
-import '../widgets/common/custom_snackbar.dart';  // Assuming this is your custom snackbar
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../widgets/common/custom_snackbar.dart';
 
 class LoginController with ChangeNotifier {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final loginFormkey = GlobalKey<FormState>();
+  final _storage = const FlutterSecureStorage();
 
   String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
@@ -33,21 +36,29 @@ class LoginController with ChangeNotifier {
     return null;
   }
 
-  // The login function with context for Snackbar
   loginUser(BuildContext context) async {
     if (loginFormkey.currentState!.validate()) {
       try {
-        
-        final userModel = UserModel(email: emailController.text, password: passwordController.text);
-        
-        // Example logic: If login is successful, navigate to the next screen (or whatever you want to do)
-        // You would replace this with actual authentication logic (e.g., API call or Firebase)
-        if (userModel.email == 'test@example.com' && userModel.password == 'password123') {
-          
+        final dio = Dio();
+        const loginUrl = 'https://flutter-amr.noviindus.in/api/Login';
+        final response = await dio.post(
+          loginUrl,
+          data: {
+            'username': emailController.text,
+            'password': passwordController.text,
+          },
+        );
+
+        if (response.statusCode == 200 && response.data['token'] != null) {
+          // On success
           emailController.clear();
           passwordController.clear();
-          
-          // Show success snackbar
+
+          // Navigate to home screen
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const HomeScreen()),
+          );
+
           CustomSnackbar.show(
             context: context,
             title: 'Success',
@@ -56,16 +67,17 @@ class LoginController with ChangeNotifier {
             icon: Icons.check_circle,
           );
         } else {
-          // On failure
+          // Handle invalid credentials
           CustomSnackbar.show(
             context: context,
             title: 'Error',
-            subtitle: 'Login failed. Please check your credentials.',
+            subtitle: 'Invalid email or password',
             color: Colors.red.shade600,
             icon: Icons.error,
           );
         }
       } catch (e) {
+        // Handle unexpected errors
         CustomSnackbar.show(
           context: context,
           title: 'Error',
@@ -75,7 +87,7 @@ class LoginController with ChangeNotifier {
         );
       }
     } else {
-      // Show error if the form is invalid
+      // Handle invalid form
       CustomSnackbar.show(
         context: context,
         title: 'Error',
@@ -84,5 +96,13 @@ class LoginController with ChangeNotifier {
         icon: Icons.cancel_outlined,
       );
     }
+  }
+
+  Future<void> storeToken(String token) async {
+    await _storage.write(key: 'auth_token', value: token);
+  }
+
+  Future<String?> getToken() async {
+    return await _storage.read(key: 'auth_token');
   }
 }

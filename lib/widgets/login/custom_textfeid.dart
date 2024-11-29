@@ -32,14 +32,7 @@ class CustomTextfield extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            labelText,
-            style: const TextStyle(
-              color: Colors.black54,
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          Text(labelText, style: CustomTextStyle.textFieldstyle),
           const SizedBox(height: 8.0),
 
           // TextFormField

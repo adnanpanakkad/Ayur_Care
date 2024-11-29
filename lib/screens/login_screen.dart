@@ -1,5 +1,4 @@
 import 'package:ayur_care/controller/login_controller.dart';
-import 'package:ayur_care/screens/home_screen.dart';
 import 'package:ayur_care/utils/app_text_styles.dart';
 import 'package:ayur_care/widgets/login/custom_buttom.dart';
 import 'package:ayur_care/widgets/login/custom_textfeid.dart';
@@ -33,9 +32,9 @@ class LoginScreen extends StatelessWidget {
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text(
-                            'Login or register to book your appointments',
-                            style: TextStyle(fontSize: 25),
+                          Text(
+                            'Login Or Register To Book Your Appointments',
+                            style: CustomTextStyle.highboldTxtStyle,
                           ),
                           const SizedBox(
                             height: 30,
@@ -43,7 +42,7 @@ class LoginScreen extends StatelessWidget {
 
                           CustomTextfield(
                               validation: (value) =>
-                                  loginController.validateEmail(value),
+                                  loginController.textFieldValidation(value),
                               controller: loginController.emailController,
                               hintText: 'Email',
                               labelText: 'Email'),
@@ -63,11 +62,11 @@ class LoginScreen extends StatelessWidget {
                           CustomButton(
                               text: 'Login',
                               onTap: () {
-                                // loginController.loginUser(context);
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                      builder: (context) => const HomeScreen()),
-                                );
+                                loginController.loginUser(context);
+                                // Navigator.of(context).push(
+                                //   MaterialPageRoute(
+                                //       builder: (context) => const HomeScreen()),
+                                // );
                               }),
                           const SizedBox(height: 60),
                           CustomTextStyle.getDoctorDescription(),

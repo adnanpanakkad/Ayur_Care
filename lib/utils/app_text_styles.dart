@@ -1,59 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
 class CustomTextStyle {
-  static const TextStyle buttonTextStyle = TextStyle(
-      fontSize: 17, fontWeight: FontWeight.w600, fontFamily: "Urbanist");
-  static const TextStyle containerTextStyle = TextStyle(
-      color: Colors.black,
-      fontSize: 19,
-      fontWeight: FontWeight.w600,
-      fontFamily: "Urbanist");
+  static final TextStyle buttonTextStyle = GoogleFonts.poppins(
+    fontSize: 17,
+    fontWeight: FontWeight.w600,
+  );
 
-  static const TextStyle highboldTxtStyle = TextStyle(
-      fontSize: 29,
-      fontWeight: FontWeight.w600,
-      fontFamily: 'Urbanist',
-      color: Color.fromARGB(255, 53, 53, 53));
+  static final TextStyle containerTextStyle = GoogleFonts.poppins(
+    color: Colors.black,
+    fontSize: 19,
+    fontWeight: FontWeight.w600,
+  );
 
-  static const TextStyle swipeTextStyle = TextStyle(
-      fontSize: 17,
-      fontWeight: FontWeight.w600,
-      fontFamily: "Urbanist",
-      color: Appcolor.primaryColor);
+  static TextStyle highboldTxtStyle = GoogleFonts.poppins(
+    fontSize: 25,
+    fontWeight: FontWeight.w600,
+    color: Appcolor.textColor,
+  );
 
-  static const TextStyle ultraBoldTextstyle = TextStyle(
-      fontSize: 35, fontFamily: 'Urbanist', fontWeight: FontWeight.bold);
+  static final TextStyle swipeTextStyle = GoogleFonts.poppins(
+    fontSize: 17,
+    fontWeight: FontWeight.w600,
+    color: Appcolor.primaryColor,
+  );
 
-  static const TextStyle textFieldstyle = TextStyle(
-      color: Color.fromARGB(255, 157, 157, 157),
-      fontSize: 16,
-      fontWeight: FontWeight.w500,
-      fontFamily: "Urbanist");
-  static const TextStyle textFieldlabelstyle = TextStyle(
-      color: Color.fromARGB(137, 0, 0, 0),
-      fontSize: 16,
-      fontWeight: FontWeight.bold,
-      fontFamily: "Urbanist");
-  static getDoctorDescription() {
-    return const Text.rich(
+  static final TextStyle ultraBoldTextstyle = GoogleFonts.poppins(
+    fontSize: 35,
+    fontWeight: FontWeight.bold,
+  );
+
+  static final TextStyle textFieldstyle = GoogleFonts.poppins(
+    color: const Color.fromARGB(255, 157, 157, 157),
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+  );
+
+  static final TextStyle textFieldlabelstyle = GoogleFonts.poppins(
+    color: const Color(0xFF404040),
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+  );
+
+  static Widget getDoctorDescription() {
+    return Text.rich(
       TextSpan(
         text:
             'By creating or logging into an account you are agreeing with our ',
-        style: TextStyle(color: Colors.black), // Default text color
+        style: GoogleFonts.poppins(color: Colors.black), // Default text style
         children: <TextSpan>[
           TextSpan(
-            text: 'Terms and Conditions', // The part you want to make blue
-            style: TextStyle(color: Colors.blue), // Blue color
+            text: 'Terms and Conditions', // Highlighted text
+            style: GoogleFonts.poppins(color: Colors.blue),
           ),
           TextSpan(
             text: ' and ',
-            style: TextStyle(color: Colors.black), // Default text color
+            style: GoogleFonts.poppins(color: Colors.black),
           ),
           TextSpan(
-            text: 'Privacy Policy', // The part you want to make blue
-            style: TextStyle(color: Colors.blue), // Blue color
+            text: 'Privacy Policy',
+            style: GoogleFonts.poppins(color: Colors.blue),
           ),
         ],
       ),
