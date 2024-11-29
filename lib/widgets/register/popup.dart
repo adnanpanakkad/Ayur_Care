@@ -27,7 +27,7 @@ class Popup extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: Text(
           message!,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
             fontSize: 16,
             fontWeight: FontWeight.w500,
@@ -65,8 +65,8 @@ class Popup extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               ),
-              child: const Text('Yes'),
               onPressed: onTap,
+              child: const Text('Yes'),
             ),
           ],
         ),

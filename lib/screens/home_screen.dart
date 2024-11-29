@@ -17,7 +17,6 @@ class HomeScreen extends StatelessWidget {
       appBar: const CustomAppBar(),
       body: Column(
         children: [
-          // Main content with scrollable area
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 10, right: 10),
@@ -48,9 +47,9 @@ class HomeScreen extends StatelessWidget {
                             margin: const EdgeInsets.only(left: 8),
                             decoration: BoxDecoration(
                               color: Appcolor
-                                  .buttonColor, // Button background color
+                                  .buttonColor, 
                               borderRadius:
-                                  BorderRadius.circular(8), // Rounded corners
+                                  BorderRadius.circular(8), 
                             ),
                             child: TextButton(
                                 onPressed: () {},

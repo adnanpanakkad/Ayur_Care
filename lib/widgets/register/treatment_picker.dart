@@ -49,7 +49,7 @@ class TreatmentPicker extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 37.0),
                       child: Row(
                         children: [
-                          Text(
+                          const Text(
                             'Male',
                             style: TextStyle(
                                 color: Appcolor.buttonColor, fontSize: 18),
@@ -64,7 +64,7 @@ class TreatmentPicker extends StatelessWidget {
                               border: Border.all(color: Colors.grey),
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: Text(
+                            child: const Text(
                               '2',
                               style: TextStyle(color: Appcolor.buttonColor),
                             ),
@@ -76,7 +76,7 @@ class TreatmentPicker extends StatelessWidget {
                       padding: const EdgeInsets.only(right: 0),
                       child: Row(
                         children: [
-                          Text(
+                          const Text(
                             'Female',
                             style: TextStyle(
                                 color: Appcolor.buttonColor, fontSize: 18),
@@ -91,7 +91,7 @@ class TreatmentPicker extends StatelessWidget {
                               border: Border.all(color: Colors.grey),
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: Text(
+                            child: const Text(
                               '2',
                               style: TextStyle(color: Appcolor.buttonColor),
                             ),

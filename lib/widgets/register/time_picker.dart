@@ -9,7 +9,7 @@ class TimeSlotPiker extends StatelessWidget {
   final FormFieldValidator? validation;
   final Function? onTap;
 
-  TimeSlotPiker({
+  const TimeSlotPiker({
     super.key,
     this.controller,
     this.hintText,
@@ -28,7 +28,7 @@ class TimeSlotPiker extends StatelessWidget {
         validator: validation,
         onTap: () => onTap!(),
         decoration: InputDecoration(
-          suffixIcon: Icon(
+          suffixIcon: const Icon(
             Icons.keyboard_arrow_down_rounded,
             color: Appcolor.buttonColor,
           ),

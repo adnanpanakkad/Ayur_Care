@@ -22,7 +22,7 @@ class RegisterScreen extends StatelessWidget {
       appBar: const CustomAppBar(),
       body: Stack(
         children: [
-          // Scrollable content
+          
           SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +85,7 @@ class RegisterScreen extends StatelessWidget {
                                   registerController.pickStartTime(context),
                             ),
                           ),
-                          SizedBox(width: 10), // Space between the two fields
+                          const SizedBox(width: 10), 
                           Expanded(
                             child: TimeSlotPiker(
                               hintText: 'Minutes',

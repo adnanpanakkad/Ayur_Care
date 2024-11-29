@@ -6,7 +6,7 @@ class ImageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: Alignment.center, // Aligns the images
+      alignment: Alignment.center, 
       children: [
         // Background image
         Image.asset(
@@ -17,7 +17,7 @@ class ImageContainer extends StatelessWidget {
         ),
         // Top center image
         const Positioned(
-          top: 50, // Adjust this value to control vertical alignment
+          top: 50, 
           child: CircleAvatar(
             backgroundColor: Colors.transparent,
             radius: 45,

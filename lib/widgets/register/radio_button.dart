@@ -8,8 +8,7 @@ class RadioButton extends StatefulWidget {
 }
 
 class _RadioButtonState extends State<RadioButton> {
-  String _selectedValue = 'Cash'; // Initial selected value
-
+  String _selectedValue = 'Cash'; 
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -24,7 +23,7 @@ class _RadioButtonState extends State<RadioButton> {
                 _selectedValue = value!;
               });
             },
-            contentPadding: EdgeInsets.zero, // Removes extra padding
+            contentPadding: EdgeInsets.zero, 
           ),
         ),
         Expanded(
@@ -37,7 +36,7 @@ class _RadioButtonState extends State<RadioButton> {
                 _selectedValue = value!;
               });
             },
-            contentPadding: EdgeInsets.zero, // Removes extra padding
+            contentPadding: EdgeInsets.zero, 
           ),
         ),
         Expanded(
@@ -50,7 +49,7 @@ class _RadioButtonState extends State<RadioButton> {
                 _selectedValue = value!;
               });
             },
-            contentPadding: EdgeInsets.zero, // Removes extra padding
+            contentPadding: EdgeInsets.zero, 
           ),
         ),
       ],
