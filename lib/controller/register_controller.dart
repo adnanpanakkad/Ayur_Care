@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 
 class RegisterController with ChangeNotifier {
-  final TextEditingController endtimeController = TextEditingController();
-  final TextEditingController starttimeController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController whatsappController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
+  TextEditingController branchController = TextEditingController();
+  TextEditingController treatmentController = TextEditingController();
+  TextEditingController totalAmountController = TextEditingController();
+  TextEditingController discountAmountController = TextEditingController();
+  TextEditingController advanceAmountController = TextEditingController();
+  TextEditingController balanceAmountController = TextEditingController();
+  TextEditingController starttimeController = TextEditingController();
+  TextEditingController endtimeController = TextEditingController();
   final registerFormkey = GlobalKey<FormState>();
 
   var selectedStartTime = TimeOfDay.now();

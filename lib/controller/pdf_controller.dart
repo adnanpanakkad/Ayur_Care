@@ -5,8 +5,21 @@ import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
-
-void generatePDF(BuildContext context) async {
+void generatePDF(
+  BuildContext context, {
+  required String name,
+  required String whatsapp,
+  required String address,
+  required String location,
+  required String branch,
+  required String treatment,
+  required String totalAmount,
+  required String discountAmount,
+  required String advanceAmount,
+  required String balanceAmount,
+  required String starttime,
+  required String endtime,
+}) async {
   final pdf = pw.Document();
 
   // Add your custom page layout here
@@ -39,9 +52,9 @@ void generatePDF(BuildContext context) async {
                   style: pw.TextStyle(
                       fontSize: 16, fontWeight: pw.FontWeight.bold)),
               pw.SizedBox(height: 10),
-              pw.Text("Name: Salih T"),
-              pw.Text("Address: Nadakkave, Kozhikode"),
-              pw.Text("WhatsApp Number: +91 987654321"),
+              pw.Text("Name: $name"),
+              pw.Text("Address: $address"),
+              pw.Text("WhatsApp Number: $whatsapp"),
 
               pw.SizedBox(height: 20),
 
@@ -53,20 +66,18 @@ void generatePDF(BuildContext context) async {
               pw.Table.fromTextArray(
                 headers: ["Treatment", "Price", "Male", "Female", "Total"],
                 data: [
-                  ["Panchakarma", "₹230", "4", "-", "₹2,540"],
-                  ["Njavara Kizhi Treatment", "₹230", "4", "-", "₹2,540"],
-                  ["Panchakarma", "₹230", "-", "4", "₹2,540"],
+                  [treatment, "₹230", "4", "-", "₹2,540"], // Example data
                 ],
               ),
 
               pw.SizedBox(height: 20),
 
               // Total and Balance
-              pw.Text("Total Amount: ₹7,620",
+              pw.Text("Total Amount: ₹$totalAmount",
                   style: pw.TextStyle(fontSize: 14)),
-              pw.Text("Discount: ₹500", style: pw.TextStyle(fontSize: 14)),
-              pw.Text("Advance: ₹1,200", style: pw.TextStyle(fontSize: 14)),
-              pw.Text("Balance: ₹5,920",
+              pw.Text("Discount: ₹$discountAmount", style: pw.TextStyle(fontSize: 14)),
+              pw.Text("Advance: ₹$advanceAmount", style: pw.TextStyle(fontSize: 14)),
+              pw.Text("Balance: ₹$balanceAmount",
                   style: pw.TextStyle(
                       fontSize: 16, fontWeight: pw.FontWeight.bold)),
 
@@ -88,4 +99,3 @@ void generatePDF(BuildContext context) async {
   // Use the 'printing' package to preview or share
   await Printing.sharePdf(bytes: pdfBytes, filename: 'booking_details.pdf');
 }
-

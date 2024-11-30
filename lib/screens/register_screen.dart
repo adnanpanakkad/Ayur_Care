@@ -138,17 +138,36 @@ class RegisterScreen extends StatelessWidget {
           ),
           // Sticky Button
           Positioned(
-              left: 15,
-              right: 15,
-              bottom: 20,
-              child: CustomButton(
-                  text: 'Save',
-                  onTap: () {
-                    if (registerController.registerFormkey.currentState!
-                        .validate()) {
-                      generatePDF(context);
-                    }
-                  })),
+            left: 15,
+            right: 15,
+            bottom: 20,
+            child: CustomButton(
+              text: 'Save',
+              onTap: () {
+                if (registerController.registerFormkey.currentState!
+                    .validate()) {
+                  generatePDF(
+                    context,
+                    name: registerController.nameController.text,
+                    whatsapp: registerController.whatsappController.text,
+                    address: registerController.addressController.text,
+                    location: registerController.locationController.text,
+                    branch: registerController.branchController.text,
+                    treatment: registerController.treatmentController.text,
+                    totalAmount: registerController.totalAmountController.text,
+                    discountAmount:
+                        registerController.discountAmountController.text,
+                    advanceAmount:
+                        registerController.advanceAmountController.text,
+                    balanceAmount:
+                        registerController.balanceAmountController.text,
+                    starttime: registerController.starttimeController.text,
+                    endtime: registerController.endtimeController.text,
+                  );
+                }
+              },
+            ),
+          ),
         ],
       ),
     );
