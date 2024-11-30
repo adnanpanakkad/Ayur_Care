@@ -1,3 +1,6 @@
+import 'package:ayur_care/controller/api_controller.dart';
+import 'package:ayur_care/model/patient_model.dart';
+import 'package:flutter/material.dart';
 import 'package:ayur_care/screens/register_screen.dart';
 import 'package:ayur_care/utils/app_colors.dart';
 import 'package:ayur_care/utils/app_text_styles.dart';
@@ -5,13 +8,15 @@ import 'package:ayur_care/widgets/common/custom_appbar.dart';
 import 'package:ayur_care/widgets/home/drop_down.dart';
 import 'package:ayur_care/widgets/home/homecard.dart';
 import 'package:ayur_care/widgets/login/custom_buttom.dart';
-import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final apiController = Provider.of<ApiController>(context);
+
     return Scaffold(
       backgroundColor: Appcolor.primaryColor,
       appBar: const CustomAppBar(),
@@ -43,13 +48,10 @@ class HomeScreen extends StatelessWidget {
                         Container(
                             height: 48,
                             width: 100,
-                            //padding: const EdgeInsets.all(12),
                             margin: const EdgeInsets.only(left: 8),
                             decoration: BoxDecoration(
-                              color: Appcolor
-                                  .buttonColor, 
-                              borderRadius:
-                                  BorderRadius.circular(8), 
+                              color: Appcolor.buttonColor,
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             child: TextButton(
                                 onPressed: () {},
@@ -72,32 +74,57 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     const Divider(),
-                    // Cards in the body
-                    const Padding(
-                      padding: EdgeInsets.only(left: 10, right: 10),
-                      child: Column(
-                        children: [
-                          Homecard(
-                            date: '12.10.2003',
-                            time: 'jithesh',
-                            tittle: '1.vivekh',
-                            content: 'couplecombo package',
-                          ),
-                          Homecard(
-                            date: '13.10.2003',
-                            time: 'arun',
-                            tittle: '2.manish',
-                            content: 'familycombo package',
-                          ),
-                        ],
+                    // Cards in the body with FutureBuilder
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, right: 10),
+                      child: FutureBuilder<List<PatientModel>>(
+                        future: apiController
+                            .fetchPatientList(), // Fetching data using FutureBuilder
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            // Show a loading indicator while the data is being fetched
+                            return Container(
+                                height: 500,
+                                child: Center(
+                                    child: Text(
+                                  'Loading....',
+                                  style:
+                                      CustomTextStyle.containersubTittlestyle,
+                                )));
+                          } else if (snapshot.hasError) {
+                            // Show error message if there's an issue
+                            return const Center(
+                                child: Text("An error occurred"));
+                          } else if (!snapshot.hasData ||
+                              snapshot.data!.isEmpty) {
+                            // Show a message if no data is returned
+                            return const Center(
+                                child: Text("No data available"));
+                          } else {
+                            final patients = snapshot.data!;
+                            return Column(
+                              children: patients.map((patient) {
+                                return Homecard(
+                                  tittle: patient.name,
+                                  content: patient.treatment,
+                                  date: patient.date,
+                                  user: patient.user,
+                                );
+                              }).toList(),
+                            );
+                          }
+                        },
                       ),
                     ),
+                    SizedBox(
+                      height: 20,
+                    )
                   ],
                 ),
               ),
             ),
           ),
-
           // Sticky button at the bottom
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 15, bottom: 10),

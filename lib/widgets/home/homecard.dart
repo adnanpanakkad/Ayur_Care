@@ -2,17 +2,18 @@ import 'package:ayur_care/screens/booking_detail_screen.dart';
 import 'package:ayur_care/utils/app_colors.dart';
 import 'package:ayur_care/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Homecard extends StatelessWidget {
   final String? tittle;
   final String? content;
-  final String? time;
+  final String? user;
   final String? date;
   const Homecard({
     super.key,
     this.tittle,
     this.content,
-    this.time,
+    this.user,
     this.date,
   });
 
@@ -64,7 +65,7 @@ class Homecard extends StatelessWidget {
                         color: Colors.red,
                       ),
                       const SizedBox(width: 5),
-                      Text(date!),
+                      Text(formatDateString(date!)),
                       const SizedBox(width: 40),
                       const Icon(
                         Icons.group_outlined,
@@ -72,7 +73,9 @@ class Homecard extends StatelessWidget {
                         color: Colors.red,
                       ),
                       const SizedBox(width: 5),
-                      Text(time!),
+                      Text(
+                        user!,
+                      ),
                     ],
                   ),
                 ],
@@ -109,5 +112,13 @@ class Homecard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String formatDateString(String dateString) {
+    // Parse the string into DateTime
+    DateTime date = DateTime.parse(dateString);
+
+    // Format the DateTime into the desired format
+    return DateFormat('dd/MM/yyyy').format(date);
   }
 }

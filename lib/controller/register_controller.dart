@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class RegisterController with ChangeNotifier {
   final TextEditingController endtimeController = TextEditingController();
   final TextEditingController starttimeController = TextEditingController();
+  final registerFormkey = GlobalKey<FormState>();
+
   var selectedStartTime = TimeOfDay.now();
   var selectedEndTime = TimeOfDay.now();
 
@@ -27,12 +29,12 @@ class RegisterController with ChangeNotifier {
       endtimeController.text = picked.format(context);
     }
   }
-   textFieldValidation(String value) {
+
+  textFieldValidation(String value) {
     if (value.isEmpty) {
       return "Fill the field";
     } else {
       return null;
     }
   }
-  
 }

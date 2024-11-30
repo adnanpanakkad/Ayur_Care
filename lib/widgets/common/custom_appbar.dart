@@ -1,3 +1,4 @@
+import 'package:ayur_care/screens/home_screen.dart';
 import 'package:ayur_care/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const HomeScreen(),
+              ),
+            );
           },
         ),
         // Right side icons

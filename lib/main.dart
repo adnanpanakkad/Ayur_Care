@@ -1,3 +1,4 @@
+import 'package:ayur_care/controller/api_controller.dart';
 import 'package:ayur_care/controller/login_controller.dart';
 import 'package:ayur_care/controller/register_controller.dart';
 import 'package:ayur_care/screens/splash_screen.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => LoginController()),
         ChangeNotifierProvider(create: (context) => RegisterController()),
+        ChangeNotifierProvider(create: (context) => ApiController()),
       ],
       child: MaterialApp(
         title: 'Ayur Care',

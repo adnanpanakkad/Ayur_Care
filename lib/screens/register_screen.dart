@@ -22,7 +22,6 @@ class RegisterScreen extends StatelessWidget {
       appBar: const CustomAppBar(),
       body: Stack(
         children: [
-          
           SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,68 +37,100 @@ class RegisterScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const CustomTextfield(
-                          hintText: 'Enter your full name', labelText: 'Name'),
-                      const CustomTextfield(
-                          hintText: 'Enter your Whatsapp number',
-                          labelText: 'Whatsapp Number'),
-                      const CustomTextfield(
-                          hintText: 'Enter your full address',
-                          labelText: 'Address'),
-                      const CustomTextfield(
-                          hintText: 'Choose your location',
-                          labelText: 'Location'),
-                      const CustomTextfield(
-                          hintText: 'Select the branch', labelText: 'Branch'),
-                      Text(
-                        'Treatments',
-                        style: CustomTextStyle.textFieldlabelstyle,
-                      ),
-                      const TreatmentPicker(),
-                      const CustomTextfield(labelText: 'Total Amount'),
-                      const CustomTextfield(labelText: 'Discount Amount'),
-                      Text(
-                        'Payment Option',
-                        style: CustomTextStyle.textFieldlabelstyle,
-                      ),
-                      const RadioButton(),
-                      const CustomTextfield(labelText: 'Advance Amount'),
-                      const CustomTextfield(labelText: 'Balance Amount'),
-                      Text(
-                        'Payment Option',
-                        style: CustomTextStyle.textFieldlabelstyle,
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: TimeSlotPiker(
-                              hintText: 'Hour',
-                              controller:
-                                  registerController.starttimeController,
-                              validation: (value) =>
-                                  registerController.textFieldValidation(value),
-                              onTap: () =>
-                                  registerController.pickStartTime(context),
+                  child: Form(
+                    key: registerController.registerFormkey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomTextfield(
+                            validation: (value) =>
+                                registerController.textFieldValidation(value),
+                            hintText: 'Enter your full name',
+                            labelText: 'Name'),
+                        CustomTextfield(
+                            validation: (value) =>
+                                registerController.textFieldValidation(value),
+                            hintText: 'Enter your Whatsapp number',
+                            labelText: 'Whatsapp Number'),
+                        CustomTextfield(
+                            validation: (value) =>
+                                registerController.textFieldValidation(value),
+                            hintText: 'Enter your full address',
+                            labelText: 'Address'),
+                        CustomTextfield(
+                            validation: (value) =>
+                                registerController.textFieldValidation(value),
+                            hintText: 'Choose your location',
+                            labelText: 'Location'),
+                        CustomTextfield(
+                            validation: (value) =>
+                                registerController.textFieldValidation(value),
+                            hintText: 'Select the branch',
+                            labelText: 'Branch'),
+                        Text(
+                          'Treatments',
+                          style: CustomTextStyle.textFieldlabelstyle,
+                        ),
+                        const TreatmentPicker(),
+                        CustomTextfield(
+                          labelText: 'Total Amount',
+                          validation: (value) =>
+                              registerController.textFieldValidation(value),
+                        ),
+                        CustomTextfield(
+                          labelText: 'Discount Amount',
+                          validation: (value) =>
+                              registerController.textFieldValidation(value),
+                        ),
+                        Text(
+                          'Payment Option',
+                          style: CustomTextStyle.textFieldlabelstyle,
+                        ),
+                        const RadioButton(),
+                        CustomTextfield(
+                          labelText: 'Advance Amount',
+                          validation: (value) =>
+                              registerController.textFieldValidation(value),
+                        ),
+                        CustomTextfield(
+                          labelText: 'Balance Amount',
+                          validation: (value) =>
+                              registerController.textFieldValidation(value),
+                        ),
+                        Text(
+                          'Treatment Time',
+                          style: CustomTextStyle.textFieldlabelstyle,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: TimeSlotPiker(
+                                hintText: 'Hour',
+                                controller:
+                                    registerController.starttimeController,
+                                validation: (value) => registerController
+                                    .textFieldValidation(value),
+                                onTap: () =>
+                                    registerController.pickStartTime(context),
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 10), 
-                          Expanded(
-                            child: TimeSlotPiker(
-                              hintText: 'Minutes',
-                              controller: registerController.endtimeController,
-                              validation: (value) =>
-                                  registerController.textFieldValidation(value),
-                              onTap: () =>
-                                  registerController.pickEndTime(context),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: TimeSlotPiker(
+                                hintText: 'Minutes',
+                                controller:
+                                    registerController.endtimeController,
+                                validation: (value) => registerController
+                                    .textFieldValidation(value),
+                                onTap: () =>
+                                    registerController.pickEndTime(context),
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 80),
-                    ],
+                          ],
+                        ),
+                        const SizedBox(height: 80),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -113,7 +144,10 @@ class RegisterScreen extends StatelessWidget {
               child: CustomButton(
                   text: 'Save',
                   onTap: () {
-                    generatePDF(context);
+                    if (registerController.registerFormkey.currentState!
+                        .validate()) {
+                      generatePDF(context);
+                    }
                   })),
         ],
       ),
