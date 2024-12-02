@@ -2,12 +2,12 @@ import 'package:ayur_care/controller/api_controller.dart';
 import 'package:ayur_care/model/patient_model.dart';
 import 'package:flutter/material.dart';
 import 'package:ayur_care/screens/register_screen.dart';
-import 'package:ayur_care/utils/app_colors.dart';
-import 'package:ayur_care/utils/app_text_styles.dart';
-import 'package:ayur_care/widgets/common/custom_appbar.dart';
-import 'package:ayur_care/widgets/home/drop_down.dart';
-import 'package:ayur_care/widgets/home/homecard.dart';
-import 'package:ayur_care/widgets/login/custom_buttom.dart';
+import 'package:ayur_care/screens/widgets/utils/app_colors.dart';
+import 'package:ayur_care/screens/widgets/utils/app_text_styles.dart';
+import 'package:ayur_care/screens/widgets/common/custom_appbar.dart';
+import 'package:ayur_care/screens/widgets/home/drop_down.dart';
+import 'package:ayur_care/screens/widgets/home/homecard.dart';
+import 'package:ayur_care/screens/widgets/login/custom_buttom.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {

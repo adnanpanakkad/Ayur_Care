@@ -1,5 +1,5 @@
 import 'package:ayur_care/screens/home_screen.dart';
-import 'package:ayur_care/utils/app_colors.dart';
+import 'package:ayur_care/screens/widgets/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {

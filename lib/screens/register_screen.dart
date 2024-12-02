@@ -1,13 +1,13 @@
 import 'package:ayur_care/controller/pdf_controller.dart';
 import 'package:ayur_care/controller/register_controller.dart';
-import 'package:ayur_care/utils/app_colors.dart';
-import 'package:ayur_care/utils/app_text_styles.dart';
-import 'package:ayur_care/widgets/common/custom_appbar.dart';
-import 'package:ayur_care/widgets/register/radio_button.dart';
-import 'package:ayur_care/widgets/login/custom_buttom.dart';
-import 'package:ayur_care/widgets/login/custom_textfeid.dart';
-import 'package:ayur_care/widgets/register/time_picker.dart';
-import 'package:ayur_care/widgets/register/treatment_picker.dart';
+import 'package:ayur_care/screens/widgets/utils/app_colors.dart';
+import 'package:ayur_care/screens/widgets/utils/app_text_styles.dart';
+import 'package:ayur_care/screens/widgets/common/custom_appbar.dart';
+import 'package:ayur_care/screens/widgets/register/radio_button.dart';
+import 'package:ayur_care/screens/widgets/login/custom_buttom.dart';
+import 'package:ayur_care/screens/widgets/login/custom_textfeid.dart';
+import 'package:ayur_care/screens/widgets/register/time_picker.dart';
+import 'package:ayur_care/screens/widgets/register/treatment_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

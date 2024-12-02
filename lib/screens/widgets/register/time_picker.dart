@@ -1,5 +1,5 @@
 import 'package:ayur_care/controller/register_controller.dart';
-import 'package:ayur_care/utils/app_colors.dart';
+import 'package:ayur_care/screens/widgets/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

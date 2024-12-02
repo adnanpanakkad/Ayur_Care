@@ -1,11 +1,11 @@
 import 'package:ayur_care/controller/api_controller.dart';
 import 'package:ayur_care/controller/login_controller.dart';
 import 'package:ayur_care/screens/home_screen.dart';
-import 'package:ayur_care/utils/app_text_styles.dart';
-import 'package:ayur_care/widgets/common/custom_snackbar.dart';
-import 'package:ayur_care/widgets/login/custom_buttom.dart';
-import 'package:ayur_care/widgets/login/custom_textfeid.dart';
-import 'package:ayur_care/widgets/login/image_container.dart';
+import 'package:ayur_care/screens/widgets/utils/app_text_styles.dart';
+import 'package:ayur_care/screens/widgets/common/custom_snackbar.dart';
+import 'package:ayur_care/screens/widgets/login/custom_buttom.dart';
+import 'package:ayur_care/screens/widgets/login/custom_textfeid.dart';
+import 'package:ayur_care/screens/widgets/login/image_container.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';

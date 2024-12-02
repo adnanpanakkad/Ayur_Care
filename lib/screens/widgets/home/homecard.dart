@@ -1,6 +1,6 @@
 import 'package:ayur_care/screens/booking_detail_screen.dart';
-import 'package:ayur_care/utils/app_colors.dart';
-import 'package:ayur_care/utils/app_text_styles.dart';
+import 'package:ayur_care/screens/widgets/utils/app_colors.dart';
+import 'package:ayur_care/screens/widgets/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
